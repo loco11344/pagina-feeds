@@ -1,0 +1,1838 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bachillerato Técnico en Informática - U.E. Padre Jorge Abiatar Quevedo Figueroa</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+            scroll-behavior: smooth;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1e3c72;
+            font-size: 1.8rem;
+        }
+        
+        .school-info h1 {
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+        }
+        
+        .school-info p {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: #ffcc00;
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: #ffcc00;
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.6);
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ffcc00;
+            color: #333;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #ffd633;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Secciones */
+        section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            color: #1e3c72;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background: #ffcc00;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: #666;
+        }
+        
+        /* Acerca del programa */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #1e3c72;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Plan de estudios */
+        .curriculum {
+            background-color: #f0f4f8;
+        }
+        
+        .curriculum-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .curriculum-card {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .curriculum-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .curriculum-card h3 {
+            color: #1e3c72;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .curriculum-card ul {
+            list-style-position: inside;
+            margin-left: 10px;
+        }
+        
+        .curriculum-card li {
+            margin-bottom: 8px;
+            padding-left: 5px;
+        }
+        
+        /* Módulos Técnicos */
+        .modules {
+            background-color: #f9f9f9;
+        }
+        
+        .modules-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            background: #e9ecef;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tab-btn.active {
+            background: #1e3c72;
+            color: white;
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: #d0d7e0;
+        }
+        
+        .module-content {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+        
+        .module-content.active {
+            display: block;
+        }
+        
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .module-card {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            border-left: 4px solid #1e3c72;
+        }
+        
+        .module-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        .module-icon {
+            width: 60px;
+            height: 60px;
+            background: #1e3c72;
+            color: white;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .module-card h4 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #1e3c72;
+        }
+        
+        .module-card p {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .module-topics {
+            list-style: none;
+            margin-top: 15px;
+        }
+        
+        .module-topics li {
+            margin-bottom: 8px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .module-topics li:before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #ffcc00;
+            font-weight: bold;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Beneficios */
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            text-align: center;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .benefit-icon {
+            width: 70px;
+            height: 70px;
+            background: #1e3c72;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.8rem;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: #1e3c72;
+        }
+        
+        /* Contacto */
+        .contact {
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+        
+        .contact .section-title h2 {
+            color: white;
+        }
+        
+        .contact .section-title p {
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-details p {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background: rgba(255,255,255,0.9);
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: #ffcc00;
+        }
+        
+        .footer-column p, .footer-column a {
+            color: #bbb;
+            margin-bottom: 10px;
+            display: block;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #ffcc00;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: #333;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background: #ffcc00;
+            transform: translateY(-3px);
+        }
+        
+        .share-section {
+            background: #222;
+            padding: 20px 0;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        
+        .share-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .share-title {
+            font-size: 1.2rem;
+        }
+        
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            padding: 10px 20px;
+            border-radius: 4px;
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+        }
+        
+        .share-btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .twitter {
+            background: #1da1f2;
+        }
+        
+        .whatsapp {
+            background: #25d366;
+        }
+        
+        /* Redes Sociales Embebidas */
+        .social-feeds {
+            padding: 40px 0;
+        }
+        
+        .feeds-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .feed-box {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .feed-header {
+            background: #f0f2f5;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .feed-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .feed-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .feed-action-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            color: #65676b;
+        }
+        
+        .feed-content {
+            flex: 1;
+            overflow-y: auto;
+            background: #f0f2f5;
+        }
+        
+        /* Facebook Feed */
+        .facebook-feed {
+            border: 1px solid #dddfe2;
+        }
+        
+        .facebook-header {
+            background: #fff;
+        }
+        
+        .facebook-post {
+            background: white;
+            margin: 10px;
+            border-radius: 8px;
+            padding: 12px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .post-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .post-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1e3c72;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .post-user {
+            font-weight: 600;
+            color: #050505;
+        }
+        
+        .post-time {
+            font-size: 0.8rem;
+            color: #65676b;
+        }
+        
+        .post-text {
+            margin-bottom: 10px;
+            color: #050505;
+        }
+        
+        .post-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        
+        .post-actions {
+            display: flex;
+            justify-content: space-around;
+            border-top: 1px solid #dddfe2;
+            padding-top: 8px;
+        }
+        
+        .post-action {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #65676b;
+            cursor: pointer;
+        }
+        
+        /* Instagram Feed */
+        .instagram-feed {
+            border: 1px solid #dbdbdb;
+        }
+        
+        .instagram-header {
+            background: #fff;
+            border-bottom: 1px solid #dbdbdb;
+        }
+        
+        .instagram-post {
+            background: white;
+            margin-bottom: 20px;
+            border: 1px solid #dbdbdb;
+        }
+        
+        .insta-post-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px;
+        }
+        
+        .insta-user {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+        }
+        
+        .insta-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #f09433;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .insta-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        .insta-actions {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .insta-action-left {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .insta-action {
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .insta-likes {
+            padding: 0 10px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        
+        .insta-caption {
+            padding: 0 10px 10px;
+            color: #262626;
+        }
+        
+        /* Twitter Feed */
+        .twitter-feed {
+            border: 1px solid #e1e8ed;
+        }
+        
+        .twitter-header {
+            background: #fff;
+            border-bottom: 1px solid #e1e8ed;
+        }
+        
+        .tweet {
+            background: white;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e1e8ed;
+        }
+        
+        .tweet-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 5px;
+        }
+        
+        .tweet-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #1da1f2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .tweet-user {
+            font-weight: 700;
+            color: #0f1419;
+        }
+        
+        .tweet-handle {
+            color: #5b7083;
+        }
+        
+        .tweet-text {
+            color: #0f1419;
+            margin-bottom: 10px;
+        }
+        
+        .tweet-actions {
+            display: flex;
+            justify-content: space-between;
+            max-width: 80%;
+        }
+        
+        .tweet-action {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #5b7083;
+            cursor: pointer;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #888;
+            font-size: 0.9rem;
+        }
+        
+        /* Modal para redes sociales */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 1000px;
+            height: 80vh;
+            border-radius: 10px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modal-header {
+            padding: 15px;
+            background: #f0f2f5;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        .modal-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #65676b;
+        }
+        
+        .modal-body {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .modal-iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+                gap: 15px;
+            }
+            
+            .about-content, .contact-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .share-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .feeds-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .modules-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                max-width: 300px;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo-container">
+                    <div class="logo">UE</div>
+                    <div class="school-info">
+                        <h1>Unidad Educativa Padre Jorge Abiatar Quevedo Figueroa</h1>
+                        <p>Formando líderes con valores y tecnología</p>
+                    </div>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#acerca">Acerca del Programa</a></li>
+                        <li><a href="#plan">Plan de Estudios</a></li>
+                        <li><a href="#modulos">Módulos Técnicos</a></li>
+                        <li><a href="#beneficios">Beneficios</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Bachillerato Técnico en Informática</h2>
+                <p>Formación integral con especialización en tecnologías de la información, preparando a los estudiantes para los desafíos del mundo digital.</p>
+                <a href="#modulos" class="btn">Ver Módulos Técnicos</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Acerca del Programa -->
+    <section id="acerca">
+        <div class="container">
+            <div class="section-title">
+                <h2>Acerca del Programa</h2>
+                <p>Conoce nuestro programa de Bachillerato Técnico en Informática, diseñado para formar profesionales competentes en el área tecnológica.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Formación Integral en Tecnología</h3>
+                    <p>Nuestro programa de Bachillerato Técnico en Informática combina una sólida formación académica con habilidades técnicas especializadas en el área de la informática y las tecnologías de la información.</p>
+                    <p>Los estudiantes adquieren conocimientos en programación, redes, bases de datos, desarrollo web y mantenimiento de equipos, preparándolos para continuar estudios superiores o incorporarse al mercado laboral.</p>
+                    <p>Contamos con laboratorios equipados con tecnología de punta y docentes altamente calificados que guían a los estudiantes en su proceso de aprendizaje.</p>
+                    <a href="#modulos" class="btn">Ver Módulos Especializados</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Estudiantes en laboratorio de informática">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Plan de Estudios -->
+    <section class="curriculum" id="plan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Plan de Estudios</h2>
+                <p>Nuestro programa está estructurado para proporcionar una formación completa en el área de informática.</p>
+            </div>
+            <div class="curriculum-grid">
+                <div class="curriculum-card">
+                    <h3><i class="fas fa-book-open"></i> Primer Año</h3>
+                    <ul>
+                        <li>Introducción a la Informática</li>
+                        <li>Fundamentos de Programación</li>
+                        <li>Matemáticas Aplicadas</li>
+                        <li>Sistemas Operativos Básicos</li>
+                        <li>Ofimática Básica</li>
+                        <li>Inglés Técnico</li>
+                    </ul>
+                </div>
+                <div class="curriculum-card">
+                    <h3><i class="fas fa-laptop-code"></i> Segundo Año</h3>
+                    <ul>
+                        <li>Programación Orientada a Objetos</li>
+                        <li>Bases de Datos Relacionales</li>
+                        <li>Redes de Computadoras</li>
+                        <li>Diseño Web Básico</li>
+                        <li>Mantenimiento de Equipos</li>
+                        <li>Emprendimiento Tecnológico</li>
+                    </ul>
+                </div>
+                <div class="curriculum-card">
+                    <h3><i class="fas fa-graduation-cap"></i> Tercer Año</h3>
+                    <ul>
+                        <li>Desarrollo de Aplicaciones</li>
+                        <li>Seguridad Informática</li>
+                        <li>Administración de Servidores</li>
+                        <li>Proyecto de Grado</li>
+                        <li>Prácticas Profesionales</li>
+                        <li>Ética Profesional</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Módulos Técnicos -->
+    <section class="modules" id="modulos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Módulos Técnicos Especializados</h2>
+                <p>Conoce nuestras áreas de especialización técnica que preparan a los estudiantes para el mundo laboral actual</p>
+            </div>
+            
+            <div class="modules-tabs">
+                <button class="tab-btn active" data-tab="soporte-tecnico">
+                    <i class="fas fa-tools"></i> Soporte Técnico
+                </button>
+                <button class="tab-btn" data-tab="diseno-web">
+                    <i class="fas fa-paint-brush"></i> Diseño y Desarrollo Web
+                </button>
+                <button class="tab-btn" data-tab="programacion">
+                    <i class="fas fa-code"></i> Programación y Bases de Datos
+                </button>
+                <button class="tab-btn" data-tab="sistemas-redes">
+                    <i class="fas fa-network-wired"></i> Sistemas Operativos y Redes
+                </button>
+                <button class="tab-btn" data-tab="ofimatica">
+                    <i class="fas fa-file-alt"></i> Aplicaciones Ofimáticas
+                </button>
+            </div>
+            
+            <!-- Módulo: Soporte Técnico -->
+            <div id="soporte-tecnico" class="module-content active">
+                <div class="module-grid">
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-desktop"></i>
+                        </div>
+                        <h4>Mantenimiento de Hardware</h4>
+                        <p>Diagnóstico, reparación y mantenimiento preventivo y correctivo de equipos de cómputo.</p>
+                        <ul class="module-topics">
+                            <li>Ensamblaje de computadoras</li>
+                            <li>Diagnóstico de fallas</li>
+                            <li>Reemplazo de componentes</li>
+                            <li>Limpieza y mantenimiento</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h4>Soporte de Software</h4>
+                        <p>Instalación, configuración y solución de problemas en sistemas operativos y aplicaciones.</p>
+                        <ul class="module-topics">
+                            <li>Instalación de sistemas operativos</li>
+                            <li>Configuración de controladores</li>
+                            <li>Solución de errores comunes</li>
+                            <li>Optimización de rendimiento</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <h4>Atención al Usuario</h4>
+                        <p>Habilidades de comunicación y resolución de problemas técnicos para soporte a usuarios finales.</p>
+                        <ul class="module-topics">
+                            <li>Técnicas de atención al cliente</li>
+                            <li>Documentación de problemas</li>
+                            <li>Guías de solución paso a paso</li>
+                            <li>Soporte remoto y presencial</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo: Diseño y Desarrollo Web -->
+            <div id="diseno-web" class="module-content">
+                <div class="module-grid">
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <h4>Diseño Web</h4>
+                        <p>Principios de diseño, maquetación y creación de interfaces web atractivas y funcionales.</p>
+                        <ul class="module-topics">
+                            <li>Diseño UI/UX</li>
+                            <li>HTML5 y CSS3 avanzado</li>
+                            <li>Diseño responsive</li>
+                            <li>Frameworks CSS (Bootstrap)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <h4>Desarrollo Frontend</h4>
+                        <p>Programación del lado del cliente para crear interfaces web interactivas y dinámicas.</p>
+                        <ul class="module-topics">
+                            <li>JavaScript ES6+</li>
+                            <li>Manipulación del DOM</li>
+                            <li>APIs y AJAX</li>
+                            <li>Frameworks modernos (React)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h4>Desarrollo Backend</h4>
+                        <p>Creación de servidores, APIs y lógica de negocio para aplicaciones web completas.</p>
+                        <ul class="module-topics">
+                            <li>Node.js y Express</li>
+                            <li>Bases de datos para web</li>
+                            <li>APIs RESTful</li>
+                            <li>Autenticación y seguridad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo: Programación y Bases de Datos -->
+            <div id="programacion" class="module-content">
+                <div class="module-grid">
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h4>Bases de Datos</h4>
+                        <p>Diseño, implementación y administración de sistemas de bases de datos relacionales.</p>
+                        <ul class="module-topics">
+                            <li>Modelado ER</li>
+                            <li>SQL avanzado</li>
+                            <li>MySQL / PostgreSQL</li>
+                            <li>Normalización de bases de datos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h4>Programación Estructurada</h4>
+                        <p>Fundamentos de programación usando lenguajes estructurados como C y Python.</p>
+                        <ul class="module-topics">
+                            <li>Algoritmos y pseudocódigo</li>
+                            <li>Estructuras de control</li>
+                            <li>Funciones y procedimientos</li>
+                            <li>Manejo de archivos</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-object-group"></i>
+                        </div>
+                        <h4>Programación Orientada a Objetos</h4>
+                        <p>Desarrollo de software usando paradigma orientado a objetos con Java o C#.</p>
+                        <ul class="module-topics">
+                            <li>Clases y objetos</li>
+                            <li>Herencia y polimorfismo</li>
+                            <li>Encapsulamiento y abstracción</li>
+                            <li>Patrones de diseño básicos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo: Sistemas Operativos y Redes -->
+            <div id="sistemas-redes" class="module-content">
+                <div class="module-grid">
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fab fa-windows"></i>
+                        </div>
+                        <h4>Sistemas Operativos</h4>
+                        <p>Administración y configuración de sistemas operativos Windows y Linux.</p>
+                        <ul class="module-topics">
+                            <li>Instalación y configuración</li>
+                            <li>Administración de usuarios</li>
+                            <li>Scripting en PowerShell/Bash</li>
+                            <li>Virtualización (VirtualBox, VMware)</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <h4>Redes de Computadoras</h4>
+                        <p>Fundamentos de redes, configuración de equipos de red y protocolos de comunicación.</p>
+                        <ul class="module-topics">
+                            <li>Modelo OSI y TCP/IP</li>
+                            <li>Configuración de routers y switches</li>
+                            <li>Protocolos de red</li>
+                            <li>Redes inalámbricas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Seguridad Informática</h4>
+                        <p>Protección de sistemas, redes y datos contra amenazas y vulnerabilidades.</p>
+                        <ul class="module-topics">
+                            <li>Firewalls y cortafuegos</li>
+                            <li>Autenticación y cifrado</li>
+                            <li>Detección de intrusiones</li>
+                            <li>Políticas de seguridad</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Módulo: Aplicaciones Ofimáticas -->
+            <div id="ofimatica" class="module-content">
+                <div class="module-grid">
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-file-word"></i>
+                        </div>
+                        <h4>Procesamiento de Textos</h4>
+                        <p>Uso avanzado de procesadores de texto para creación de documentos profesionales.</p>
+                        <ul class="module-topics">
+                            <li>Formatos y estilos avanzados</li>
+                            <li>Índices automáticos</li>
+                            <li>Combinación de correspondencia</li>
+                            <li>Trabajo colaborativo</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <h4>Hojas de Cálculo</h4>
+                        <p>Análisis de datos, fórmulas complejas y automatización con hojas de cálculo.</p>
+                        <ul class="module-topics">
+                            <li>Fórmulas y funciones avanzadas</li>
+                            <li>Macros y VBA básico</li>
+                            <li>Tablas dinámicas y gráficos</li>
+                            <li>Análisis de datos empresariales</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-file-powerpoint"></i>
+                        </div>
+                        <h4>Presentaciones Digitales</h4>
+                        <p>Creación de presentaciones profesionales y efectivas para diversos contextos.</p>
+                        <ul class="module-topics">
+                            <li>Diseño de diapositivas</li>
+                            <li>Animaciones y transiciones</li>
+                            <li>Integración multimedia</li>
+                            <li>Presentaciones interactivas</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module-card">
+                        <div class="module-icon">
+                            <i class="fas fa-cloud"></i>
+                        </div>
+                        <h4>Ofimática en la Nube</h4>
+                        <p>Trabajo colaborativo usando suites ofimáticas en línea como Google Workspace y Office 365.</p>
+                        <ul class="module-topics">
+                            <li>Trabajo colaborativo en tiempo real</li>
+                            <li>Almacenamiento en la nube</li>
+                            <li>Compartición y permisos</li>
+                            <li>Automatización con herramientas en línea</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios -->
+    <section id="beneficios">
+        <div class="container">
+            <div class="section-title">
+                <h2>Beneficios</h2>
+                <p>Ventajas de estudiar el Bachillerato Técnico en Informática en nuestra institución.</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-briefcase"></i></div>
+                    <h3>Inserción Laboral</h3>
+                    <p>Alta tasa de empleabilidad gracias a la formación técnica especializada.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-graduation-cap"></i></div>
+                    <h3>Continuidad Académica</h3>
+                    <p>Preparación ideal para continuar estudios universitarios en carreras tecnológicas.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Formación Práctica</h3>
+                    <p>Enfoque en el desarrollo de habilidades prácticas mediante laboratorios especializados.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Tecnología Actualizada</h3>
+                    <p>Acceso a equipos y software de última generación para un aprendizaje de calidad.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Redes Sociales Embebidas -->
+    <section class="social-feeds">
+        <div class="container">
+            <div class="section-title">
+                <h2>Síguenos en Redes Sociales</h2>
+                <p>Mantente actualizado con nuestras últimas noticias y eventos</p>
+            </div>
+            <div class="feeds-container">
+                <div class="feed-box facebook-feed">
+                    <div class="feed-header facebook-header">
+                        <div class="feed-title">
+                            <i class="fab fa-facebook" style="color: #1877f2;"></i>
+                            <span>Facebook</span>
+                        </div>
+                        <div class="feed-actions">
+                            <button class="feed-action-btn" onclick="openSocialModal('facebook')">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <div class="facebook-post">
+                            <div class="post-header">
+                                <div class="post-avatar">UE</div>
+                                <div>
+                                    <div class="post-user">Unidad Educativa Padre Jorge Abiatar</div>
+                                    <div class="post-time">Hace 2 horas</div>
+                                </div>
+                            </div>
+                            <div class="post-text">
+                                ¡Nuevo laboratorio de soporte técnico! Equipado con las últimas herramientas para diagnóstico y reparación de hardware.
+                            </div>
+                            <div class="post-image" style="height: 200px; background: linear-gradient(135deg, #1e3c72, #2a5298); display: flex; align-items: center; justify-content: center; color: white; font-size: 1.2rem;">
+                                Laboratorio de Soporte Técnico
+                            </div>
+                            <div class="post-actions">
+                                <div class="post-action">
+                                    <i class="far fa-thumbs-up"></i> Me gusta
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-comment"></i> Comentar
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-share-square"></i> Compartir
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="facebook-post">
+                            <div class="post-header">
+                                <div class="post-avatar">UE</div>
+                                <div>
+                                    <div class="post-user">Unidad Educativa Padre Jorge Abiatar</div>
+                                    <div class="post-time">Ayer a las 14:30</div>
+                                </div>
+                            </div>
+                            <div class="post-text">
+                                Taller intensivo de desarrollo web para nuestros estudiantes de tercer año. ¡Aprendiendo React y Node.js!
+                            </div>
+                            <div class="post-actions">
+                                <div class="post-action">
+                                    <i class="far fa-thumbs-up"></i> Me gusta
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-comment"></i> Comentar
+                                </div>
+                                <div class="post-action">
+                                    <i class="far fa-share-square"></i> Compartir
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feed-box instagram-feed">
+                    <div class="feed-header instagram-header">
+                        <div class="feed-title">
+                            <i class="fab fa-instagram" style="color: #E4405F;"></i>
+                            <span>Instagram</span>
+                        </div>
+                        <div class="feed-actions">
+                            <button class="feed-action-btn" onclick="openSocialModal('instagram')">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <div class="instagram-post">
+                            <div class="insta-post-header">
+                                <div class="insta-user">
+                                    <div class="insta-avatar">UE</div>
+                                    <span>ue_padrejorge</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                            <div class="insta-image" style="background: linear-gradient(135deg, #1e3c72, #2a5298);">
+                                <i class="fas fa-database"></i>
+                            </div>
+                            <div class="insta-actions">
+                                <div class="insta-action-left">
+                                    <i class="far fa-heart insta-action"></i>
+                                    <i class="far fa-comment insta-action"></i>
+                                    <i class="far fa-paper-plane insta-action"></i>
+                                </div>
+                                <i class="far fa-bookmark insta-action"></i>
+                            </div>
+                            <div class="insta-likes">1,524 me gusta</div>
+                            <div class="insta-caption">
+                                <strong>ue_padrejorge</strong> Nuestros estudiantes dominando bases de datos SQL. #Programación #BasesDeDatos #Informática #EducaciónTécnica
+                            </div>
+                        </div>
+                        
+                        <div class="instagram-post">
+                            <div class="insta-post-header">
+                                <div class="insta-user">
+                                    <div class="insta-avatar">UE</div>
+                                    <span>ue_padrejorge</span>
+                                </div>
+                                <i class="fas fa-ellipsis-h"></i>
+                            </div>
+                            <div class="insta-image" style="background: linear-gradient(135deg, #ffcc00, #ff9900);">
+                                <i class="fas fa-network-wired"></i>
+                            </div>
+                            <div class="insta-actions">
+                                <div class="insta-action-left">
+                                    <i class="far fa-heart insta-action"></i>
+                                    <i class="far fa-comment insta-action"></i>
+                                    <i class="far fa-paper-plane insta-action"></i>
+                                </div>
+                                <i class="far fa-bookmark insta-action"></i>
+                            </div>
+                            <div class="insta-likes">892 me gusta</div>
+                            <div class="insta-caption">
+                                <strong>ue_padrejorge</strong> Configurando redes en nuestro nuevo laboratorio de Cisco. #Redes #SistemasOperativos #Tecnología #Cisco
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="feed-box twitter-feed">
+                    <div class="feed-header twitter-header">
+                        <div class="feed-title">
+                            <i class="fab fa-twitter" style="color: #1da1f2;"></i>
+                            <span>Twitter</span>
+                        </div>
+                        <div class="feed-actions">
+                            <button class="feed-action-btn" onclick="openSocialModal('twitter')">
+                                <i class="fas fa-external-link-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="feed-content">
+                        <div class="tweet">
+                            <div class="tweet-header">
+                                <div class="tweet-avatar">UE</div>
+                                <div>
+                                    <div class="tweet-user">U.E. Padre Jorge Abiatar</div>
+                                    <div class="tweet-handle">@uepadrejorge</div>
+                                </div>
+                            </div>
+                            <div class="tweet-text">
+                                ¿Sabías que nuestros egresados de Informática tienen una tasa de empleabilidad del 92%? La formación técnica abre puertas al futuro laboral. #EducaciónTécnica #FuturoDigital
+                            </div>
+                            <div class="tweet-actions">
+                                <div class="tweet-action">
+                                    <i class="far fa-comment"></i> 12
+                                </div>
+                                <div class="tweet-action">
+                                    <i class="fas fa-retweet"></i> 24
+                                </div>
+                                <div class="tweet-action">
+                                    <i class="far fa-heart"></i> 58
+                                </div>
+                                <div class="tweet-action">
+                                    <i class="far fa-share-square"></i>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tweet">
+                            <div class="tweet-header">
+                                <div class="tweet-avatar">UE</div>
+                                <div>
+                                    <div class="tweet-user">U.E. Padre Jorge Abiatar</div>
+                                    <div class="tweet-handle">@uepadrejorge</div>
+                                </div>
+                            </div>
+                            <div class="tweet-text">
+                                Nuevo módulo: Ofimática avanzada local y en la nube. Preparando a nuestros estudiantes para el trabajo colaborativo moderno. #Ofimática #GoogleWorkspace #Office365
+                            </div>
+                            <div class="tweet-actions">
+                                <div class="tweet-action">
+                                    <i class="far fa-comment"></i> 8
+                                </div>
+                                <div class="tweet-action">
+                                    <i class="fas fa-retweet"></i> 15
+                                </div>
+                                <div class="tweet-action">
+                                    <i class="far fa-heart"></i> 32
+                                </div>
+                                <div class="tweet-action">
+                                    <i class="far fa-share-square"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contacto</h2>
+                <p>¿Interesado en nuestro programa? Contáctanos para más información.</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Dirección: Av. Principal #123, Ciudad</p>
+                        <p><i class="fas fa-phone"></i> Teléfono: (123) 456-7890</p>
+                        <p><i class="fas fa-envelope"></i> Email: informatica@uepadrejorge.edu</p>
+                        <p><i class="fas fa-clock"></i> Horario de Atención: Lunes a Viernes 7:00 AM - 3:00 PM</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" onclick="openSocialModal('facebook')" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" onclick="openSocialModal('instagram')" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" onclick="openSocialModal('twitter')" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="tel" placeholder="Teléfono">
+                        <select style="width: 100%; padding: 12px 15px; margin-bottom: 20px; border: none; border-radius: 5px; background: rgba(255,255,255,0.9);">
+                            <option value="" disabled selected>Interés principal</option>
+                            <option value="soporte">Soporte Técnico</option>
+                            <option value="web">Diseño y Desarrollo Web</option>
+                            <option value="programacion">Programación y Bases de Datos</option>
+                            <option value="redes">Sistemas Operativos y Redes</option>
+                            <option value="ofimatica">Aplicaciones Ofimáticas</option>
+                            <option value="general">Información General</option>
+                        </select>
+                        <textarea placeholder="Mensaje" required></textarea>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- Sección de Compartir -->
+            <div class="share-section">
+                <div class="share-container">
+                    <div class="share-title">¡Comparte nuestro programa!</div>
+                    <div class="share-buttons">
+                        <a href="#" class="share-btn twitter" onclick="shareOnTwitter()">
+                            <i class="fab fa-twitter"></i> Twitter
+                        </a>
+                        <a href="#" class="share-btn whatsapp" onclick="shareOnWhatsApp()">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Información del Footer -->
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Unidad Educativa</h3>
+                    <p>Padre Jorge Abiatar Quevedo Figueroa</p>
+                    <p>Formando líderes con valores y tecnología desde 1985.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <a href="#inicio">Inicio</a>
+                    <a href="#acerca">Acerca del Programa</a>
+                    <a href="#plan">Plan de Estudios</a>
+                    <a href="#modulos">Módulos Técnicos</a>
+                    <a href="#beneficios">Beneficios</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Módulos Técnicos</h3>
+                    <a href="#modulos" onclick="showModule('soporte-tecnico')">Soporte Técnico</a>
+                    <a href="#modulos" onclick="showModule('diseno-web')">Diseño y Desarrollo Web</a>
+                    <a href="#modulos" onclick="showModule('programacion')">Programación y Bases de Datos</a>
+                    <a href="#modulos" onclick="showModule('sistemas-redes')">Sistemas Operativos y Redes</a>
+                    <a href="#modulos" onclick="showModule('ofimatica')">Aplicaciones Ofimáticas</a>
+                </div>
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <p><i class="fas fa-envelope"></i> informatica@uepadrejorge.edu</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Unidad Educativa Padre Jorge Abiatar Quevedo Figueroa. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para redes sociales -->
+    <div class="modal" id="socialModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="modalTitle">Red Social</div>
+                <button class="close-modal" onclick="closeSocialModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <iframe class="modal-iframe" id="socialIframe" src="" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts para funcionalidades -->
+    <script>
+        // Funciones para el sistema de pestañas de módulos
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const moduleContents = document.querySelectorAll('.module-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Remover clase active de todos los botones y contenidos
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    moduleContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Agregar clase active al botón clickeado
+                    this.classList.add('active');
+                    
+                    // Mostrar el contenido correspondiente
+                    document.getElementById(tabId).classList.add('active');
+                });
+            });
+        });
+        
+        // Función para mostrar un módulo específico desde los enlaces del footer
+        function showModule(moduleId) {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const moduleContents = document.querySelectorAll('.module-content');
+            
+            // Remover clase active de todos los botones y contenidos
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            moduleContents.forEach(content => content.classList.remove('active'));
+            
+            // Activar el botón correspondiente
+            const activeButton = document.querySelector(`.tab-btn[data-tab="${moduleId}"]`);
+            if (activeButton) {
+                activeButton.classList.add('active');
+            }
+            
+            // Mostrar el contenido correspondiente
+            const activeContent = document.getElementById(moduleId);
+            if (activeContent) {
+                activeContent.classList.add('active');
+            }
+            
+            // Desplazar a la sección de módulos
+            const modulesSection = document.getElementById('modulos');
+            window.scrollTo({
+                top: modulesSection.offsetTop - 80,
+                behavior: 'smooth'
+            });
+        }
+        
+        // Funciones para compartir en redes sociales
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("¡Conoce el programa de Bachillerato Técnico en Informática de la U.E. Padre Jorge Abiatar Quevedo Figueroa! Formación especializada en tecnología. #EducaciónTécnica #Informática");
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank', 'width=600,height=400');
+        }
+
+        function shareOnWhatsApp() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent("¡Mira este programa de Bachillerato Técnico en Informática! Formación integral con especialización en tecnologías de la información.");
+            window.open(`https://api.whatsapp.com/send?text=${text}%20${url}`, '_blank');
+        }
+
+        // Funciones para el modal de redes sociales
+        function openSocialModal(network) {
+            const modal = document.getElementById('socialModal');
+            const iframe = document.getElementById('socialIframe');
+            const title = document.getElementById('modalTitle');
+            
+            let url = '';
+            let networkName = '';
+            
+            switch(network) {
+                case 'facebook':
+                    url = 'https://www.facebook.com/';
+                    networkName = 'Facebook';
+                    break;
+                case 'instagram':
+                    url = 'https://www.instagram.com/';
+                    networkName = 'Instagram';
+                    break;
+                case 'twitter':
+                    url = 'https://twitter.com/';
+                    networkName = 'Twitter';
+                    break;
+            }
+            
+            iframe.src = url;
+            title.textContent = networkName;
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeSocialModal() {
+            const modal = document.getElementById('socialModal');
+            const iframe = document.getElementById('socialIframe');
+            
+            modal.style.display = 'none';
+            iframe.src = '';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Cerrar modal al hacer clic fuera
+        window.onclick = function(event) {
+            const modal = document.getElementById('socialModal');
+            if (event.target === modal) {
+                closeSocialModal();
+            }
+        }
+
+        // Manejo del formulario de contacto
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+            this.reset();
+        });
+
+        // Smooth scrolling para enlaces de navegación
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if(this.getAttribute('href').startsWith('#')) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
